@@ -210,11 +210,6 @@ func (k *Key) MarshalROOT(w *WBuffer) (int, error) {
 	start := w.Pos()
 	w.WriteVersion(k.version)
 
-	/*if _, err := k.obj.MarshalROOT(w); err != nil {
-		w.err = err
-		return 0, w.err
-	}*/
-
 	w.WriteI32(k.objlen)
 	w.WriteU32(time2datime(k.datetime))
 	w.WriteI32(k.keylen)
